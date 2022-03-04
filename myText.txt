@@ -1,0 +1,1 @@
+this is the content of the "myText.txt" file; which was sent with multipart/form-data

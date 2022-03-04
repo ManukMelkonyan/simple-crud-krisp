@@ -3,7 +3,6 @@ const Users = db.users;
 const Op = db.Sequelize.Op;
 const fs = require("fs");
 const path = require("path");
-const { Console } = require("console");
 
 module.exports.getAll = (req, res) => {
   Users.findAll({
@@ -145,7 +144,7 @@ module.exports.uploadPicture = (req, res) => {
         const fileName = fileInfo.split("=")[1].replaceAll('"', "");
         fs.writeFile(
           path.join(__dirname, "..", "receivedFiles", fileName),
-          buf.slice(buf.toString("ascii").indexOf(token[4][0]), buf.length - boundary.length - 6),
+          buf.slice(buf.toString("ascii").indexOf(token[4]), buf.length - boundary.length - 6),
           (err) => {
             if (err) {
               console.log(err);
